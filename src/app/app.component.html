@@ -1,0 +1,38 @@
+
+<div class="panel panel-default" style="margin-top:10px;">
+  <div class="panel-heading">
+      GOT
+  </div>
+  <div class="panel-body" style="position:relative">
+      <div class="table-responsive">
+          <table class="table" border=1>
+
+              <thead>
+                  <tr>
+                    <th sortable-column="id">Book Number</th>
+                    <th sortable-column="name">Book Name</th>
+                    <th sortable-column="pages">No Of Pages</th>
+                    <th sortable-column="characters">Characters</th>
+                  </tr>
+                </thead>
+
+              
+              <tr *ngFor="let data of jsonData; let i = index">
+                <td>{{i+1}}</td>
+                <td><a href="#"  ><i (click)="loadDetail(data.url)">{{data.name}}</i></a></td>
+                <td>{{data.numberOfPages}}</td>
+                <td>{{data.characters.length}}</td>
+              </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <div *ngIf="showDetail">
+   <b align = "center"> {{detailJsonData.name}} </b><br>
+   <b align = "left">  Number Of Pages: {{detailJsonData.numberOfPages}}</b><br>
+      <b align = "left"> Publisher: {{detailJsonData.authors}}</b><br>
+          <b align = "left">  Country: {{detailJsonData.country}}</b><br>
+              <b align = "left">  MediaType: {{detailJsonData.mediaType}}</b><br>
+                  <b align = "left">  Released: {{detailJsonData.released}}</b><br>
+                      <b align = "left">  No Of Characters: {{detailJsonData.characters.length}}</b>
+</div>
